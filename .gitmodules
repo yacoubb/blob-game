@@ -1,0 +1,3 @@
+[submodule "socket.io-rooms"]
+	path = socket.io-rooms
+	url = https://github.com/yacoubb/socket.io-rooms
