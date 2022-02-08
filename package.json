@@ -1,9 +1,10 @@
 {
-  "name": "blob-game",
-  "version": "1.0.0",
-  "description": "A game about blobs in castles.",
-  "main": "dist/index.js",
-  "repository": "https://github.com/yacoubb/blob-game",
-  "author": "Yacoub Ahmed",
-  "license": "MIT"
+    "name": "blob-game",
+    "version": "1.0.0",
+    "description": "A game about blobs in castles.",
+    "main": "dist/index.js",
+    "repository": "https://github.com/yacoubb/blob-game",
+    "author": "Yacoub Ahmed",
+    "license": "MIT",
+    "private": "true"
 }
