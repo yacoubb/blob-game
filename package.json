@@ -6,5 +6,6 @@
   "repository": "https://github.com/yacoubb/blob-game",
   "author": "Yacoub Ahmed",
   "license": "MIT",
-  "private": "true"
+  "private": "true",
+  "workspaces": ["frontend", "socket.io-rooms"]
 }
