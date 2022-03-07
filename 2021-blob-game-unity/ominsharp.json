@@ -1,0 +1,8 @@
+{
+    "FormattingOptions": {
+        "organizeImports": true,
+        "UseTabs": false,
+        "TabSize": 2,
+        "IndentationSize": 2
+    }
+}

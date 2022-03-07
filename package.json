@@ -1,0 +1,21 @@
+{
+    "name": "blob-game",
+    "version": "1.0.0",
+    "description": "A game about blobs in castles.",
+    "main": "dist/index.js",
+    "repository": "https://github.com/yacoubb/blob-game",
+    "author": "Yacoub Ahmed",
+    "license": "MIT",
+    "private": "true",
+    "scripts": {
+        "sync-gql": "cd backend && yarn build-gql && cd ../frontend && yarn sync-gql"
+    },
+    "dependencies": {
+        "graphql": "^15.3.0"
+    },
+    "workspaces": [
+        "frontend",
+        "backend",
+        "gameserver"
+    ]
+}

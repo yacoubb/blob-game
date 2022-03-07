@@ -1,0 +1,12 @@
+# video recordings
+capture
+
+# npm modules
+node_modules/
+
+# unused unity projects
+2022-blob-game-unity/
+blob-game-unity/
+webgl-testing/
+
+.env

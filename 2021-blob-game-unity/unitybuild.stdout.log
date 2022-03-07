@@ -1,0 +1,51 @@
+Unity Editor version:    2021.2.12f1 (48b1aa000234)
+Branch:                  2021.2/staging
+Build type:              Release
+Batch mode:              YES
+System name:             Linux
+Distro version:          #33~20.04.1-Ubuntu SMP Mon Feb 7 14:25:10 UTC 2022
+Kernel version:          5.13.0-30-generic
+Architecture:            x86_64
+Available memory:        15928 MB
+[SignatureVerifier] Application signature verification not supported on this platform.
+[LicensingClient] Handshaking with LicensingClient (version: 1.9.6+22db5be)
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-yacoub" (connect: 0.00s, validation: 0.01s, handshake: 0.00s)
+Entitlement-based licensing initiated
+[Licensing::Module] Error: Access token is unavailable
+[LicensingClient] Licenses updated successfully
+
+LICENSE SYSTEM [202234 11:35:26] Next license update check is after 2022-03-05T11:35:26
+
+
+LICENSE SYSTEM [202234 11:35:26] Current license is already valid and activated. Skipping license activation process (Provided username/password will be ignored).
+[Licensing::Module] Serial number assigned to: "SC-JBWV-TYC7-P6NG-CBNT-XXXX"
+Pro License: YES
+
+(Unity:178283): Gdk-CRITICAL **: 11:35:26.277: gdk_window_get_cursor: assertion 'GDK_IS_WINDOW (window)' failed
+Desktop is 4920 x 2160 @ 60 Hz
+Initialize udev device monitor.
+[Package Manager] Server::Start -- Port 39493 was selected
+
+COMMAND LINE ARGUMENTS:
+/home/yacoub/unity-editors/2021.2.12f1/Editor/Unity
+-quit
+-batchmode
+-logFile
+unitybuild.stdout.log
+-project_path
+/tmp/2021-blob-game-unity-server
+-executeMethod
+ExecuteableBuilder.server
+-buildpath
+/home/yacoub/unitybuildresult
+/home/yacoub/blob-game/2021-blob-game-unity
+It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /home/yacoub/blob-game/2021-blob-game-unity
+Fatal Error! It looks like another Unity instance is running with this project open.
+
+Multiple Unity instances cannot open the same project.
+
+Project: /home/yacoub/blob-game/2021-blob-game-unity
