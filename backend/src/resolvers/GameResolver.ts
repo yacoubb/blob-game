@@ -40,13 +40,28 @@ import getUserTimeoutListener from './UserTimeout';
 
 dotenv.config();
 
-const { GAMESERVER_ADDRESS, GAMESERVER_SECRET } = process.env;
-if (GAMESERVER_ADDRESS === undefined || GAMESERVER_SECRET === undefined) {
+console.log('GameResolver.ts');
+
+const { GAMESERVER_SECRET, NODE_ENV } = process.env;
+if (GAMESERVER_SECRET === undefined) {
   throw new Error('backend .env missing properties');
 }
 
-const gameserverAddress: string = GAMESERVER_ADDRESS;
+const gameserverAddressDict = {
+  development: 'http://localhost:5000',
+  staging: 'http://gameserver:5000',
+  production: 'http://gameserver:5000',
+};
+
+if (!NODE_ENV || !(NODE_ENV in gameserverAddressDict)) {
+  throw new Error(`Unknown NODE_ENV ${NODE_ENV}`);
+}
+
+const gameserverAddress =
+  gameserverAddressDict[NODE_ENV as keyof typeof gameserverAddressDict];
 const gameserverSecret: string = GAMESERVER_SECRET;
+
+console.log(`GameResolver.ts got gameserver address ${gameserverAddress}`);
 
 // TODO: remove graphql code from this file
 // replace game data stored inside gql with a process manager that spawns game instances on a server
@@ -94,15 +109,17 @@ export class Game {
 
 const games: Record<string, Game> = {};
 
-setInterval(() => {
-  fs.writeFile(
-    path.join(__dirname, '../../logs', 'gamelist.log'),
-    JSON.stringify(Object.values(games), null, 2),
-    () => {
-      // written, good
-    },
-  );
-}, 200);
+export function writeGamelistToLogfile() {
+  setInterval(() => {
+    fs.writeFile(
+      path.join(__dirname, '../../logs', 'gamelist.log'),
+      JSON.stringify(Object.values(games), null, 2),
+      () => {
+        // written, good
+      },
+    );
+  }, 200);
+}
 
 export async function startGame(
   gameID: string,
@@ -115,11 +132,22 @@ export async function startGame(
     gameID,
   };
 
-  const createdGame: NewGamePayload = (
-    await axios.post(`${gameserverAddress}/newgame`, gameRequest, {
-      headers: { authorization: `Bearer ${gameserverSecret}` },
-    })
-  ).data;
+  // const createdGame: NewGamePayload = (
+  //   await axios.post(`${gameserverAddress}/newgame`, gameRequest, {
+  //     headers: { authorization: `Bearer ${gameserverSecret}` },
+  //   })
+  // ).data;
+
+  const createdGame: NewGamePayload = {
+    players: players.map((p, i) => ({
+      accessToken: nanoid(),
+      id: p.id,
+      playerIndex: i,
+      username: p.username,
+    })),
+    port: 6000,
+    serverAddress: 'http://localhost',
+  };
 
   console.log(createdGame);
 

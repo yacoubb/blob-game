@@ -34,6 +34,8 @@ import getUserTimeoutListener from './UserTimeout';
 
 dotenv.config();
 
+console.log('LobbyResolver.ts');
+
 @ObjectType()
 export class Lobby {
   @Field(() => ID)

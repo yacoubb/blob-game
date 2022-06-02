@@ -1,0 +1,22 @@
+# video recordings
+capture
+
+# npm modules
+**/node_modules/
+
+# build folders
+**/build/
+**/dist/
+
+# logs
+**/logs/
+**/*.log
+
+# git data
+.git/
+
+# ignore all unity projects)
+2022-blob-game-unity/
+2021-blob-game-unity/
+blob-game-unity/
+webgl-testing/

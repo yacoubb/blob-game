@@ -20,6 +20,8 @@ import { Context } from '../context';
 
 dotenv.config();
 
+console.log('AuthResolver.ts');
+
 const JWT_SECRET = process.env.JWT_SECRET || '';
 if (JWT_SECRET === '') {
   throw new Error(`JWT_SECRET not present in .env`);

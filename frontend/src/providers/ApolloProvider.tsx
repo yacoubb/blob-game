@@ -13,9 +13,27 @@ import { setContext } from '@apollo/client/link/context';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { AUTH_TOKEN } from './AuthProvider';
 
-const httpLink = createHttpLink({ uri: `http://localhost:4000/graphql` });
+const { REACT_APP_NODE_ENV } = process.env;
+console.log(REACT_APP_NODE_ENV);
+const backendAddressDict = {
+  development: 'localhost:4000/graphql',
+  staging: 'localhost:4000/graphql',
+  production: 'gameserver:4000/graphql',
+};
+
+if (!REACT_APP_NODE_ENV || !(REACT_APP_NODE_ENV in backendAddressDict)) {
+  throw new Error(`Unknown REACT_APP_NODE_ENV ${REACT_APP_NODE_ENV}`);
+}
+
+const BACKEND_URL =
+  backendAddressDict[REACT_APP_NODE_ENV as keyof typeof backendAddressDict];
+
+if (REACT_APP_NODE_ENV === 'production')
+  throw new Error(`Update frontend with proper production IP`);
+
+const httpLink = createHttpLink({ uri: `http://${BACKEND_URL}` });
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:4000/graphql',
+  uri: `ws://${BACKEND_URL}`,
   options: {
     reconnect: true,
   },

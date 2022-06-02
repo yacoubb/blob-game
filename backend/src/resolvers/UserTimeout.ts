@@ -2,6 +2,8 @@ import EventEmitter from 'events';
 import TypedEmitter from 'typed-emitter';
 import { User } from './AuthResolver';
 
+console.log('UserTimeout.ts');
+
 export type UserTimeoutEventListenerHandler = (user: User) => void;
 type UserTimeoutEvents = {
   heartbeat: UserTimeoutEventListenerHandler;

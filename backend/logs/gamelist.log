@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "QDKUpFiqrB5zaV5hGlFjx",
+    "players": [
+      {
+        "username": "yacoub",
+        "id": "CZgDhhM-G0pHaqtbZlpnC"
+      }
+    ],
+    "port": 6000,
+    "serverAddress": "http://localhost",
+    "userIdsToAccessTokens": {
+      "CZgDhhM-G0pHaqtbZlpnC": "YpXrAyJSTrU6l2_qiNfEf"
+    }
+  }
+]

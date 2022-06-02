@@ -4,6 +4,7 @@ import { userContext, UserContext } from './resolvers/AuthResolver';
 import { lobbyContext, LobbyContext } from './resolvers/LobbyResolver';
 import { gameContext, GameContext } from './resolvers/GameResolver';
 
+console.log('context.ts');
 export type Context = UserContext & LobbyContext & GameContext;
 
 const context: ContextFunction<ExpressContext, Context> = args => {

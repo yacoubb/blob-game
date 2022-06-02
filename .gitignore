@@ -4,9 +4,20 @@ capture
 # npm modules
 node_modules/
 
+# build folders
+build/
+dist/
+
+#logs
+logs/
+
 # unused unity projects
 2022-blob-game-unity/
 blob-game-unity/
 webgl-testing/
 
 .env
+
+# built unity executeables
+unitybuild/
+unityserver/

@@ -3,11 +3,13 @@ import { ApolloServer } from 'apollo-server-express';
 import { createServer } from 'http';
 import { execute, subscribe } from 'graphql';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
+import minimist from 'minimist';
 
 import context from './context';
 import buildGQL from './buildGQL';
+import { writeGamelistToLogfile } from './resolvers/GameResolver';
 
-async function main() {
+async function main(port = 4000) {
   const app = express();
   const httpServer = createServer(app);
   const schema = await buildGQL();
@@ -40,11 +42,15 @@ async function main() {
   await apolloServer.start();
   apolloServer.applyMiddleware({ app });
 
-  httpServer.listen(4000, () => {
+  writeGamelistToLogfile();
+
+  httpServer.listen(port, () => {
     console.log(
-      `Apollo GQL server listening at http://localhost:${4000}/graphql`,
+      `Apollo GQL server listening at http://localhost:${port}/graphql`,
     );
   });
 }
 
-main();
+const args = minimist(process.argv.slice(2));
+
+main(args.port);

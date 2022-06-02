@@ -88,12 +88,6 @@ export const LEAVE_LOBBY = gql`
   }
 `;
 
-export const HEARTBEAT = gql`
-  query Heartbeat {
-    heartbeat
-  }
-`;
-
 export const START_LOBBY = gql`
   mutation StartLobby {
     startLobby {
